@@ -1,0 +1,37 @@
+//Copy into main.c to run ISR on timer overflow
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim) //ISR triggered by timer overflow
+{
+
+
+    if (htim == &htim1 && timer_1_repetition_counter == TIMER_1_PERIOD_MULTIPLIER-1)
+    {
+       //ISR for Timer 1
+       //User code here
+
+       HAL_GPIO_TogglePin(GPIOx, GPIO_Pin); //default
+
+       //User code ends
+	   timer_1_repetition_counter = 0;
+    }
+    else if(htim == &htim1)
+    {
+    	timer_1_repetition_counter++;
+    }
+
+    if(htim == &htim2 && timer_2_repetition_counter == TIMER_2_PERIOD_MULTIPLIER-1)
+    {
+        //ISR for Timer 2
+       //User code here
+
+       HAL_GPIO_TogglePin(GPIOx, GPIO_Pin); //default
+
+       //User code ends
+	   timer_2_repetition_counter = 0;
+    }
+    else if(htim == &htim2)
+    {
+    	timer_2_repetition_counter++;
+    }
+
+}

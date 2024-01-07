@@ -1,0 +1,5 @@
+C:/Users/ridas/OneDrive/Desktop/Formula_Electric/dashboard-final/front-controller/stm32-mcu/FE_Dashboard/TouchGFX/target/TouchGFXGPIO.cpp:48:6:static void touchgfx::GPIO::init()	0	static
+C:/Users/ridas/OneDrive/Desktop/Formula_Electric/dashboard-final/front-controller/stm32-mcu/FE_Dashboard/TouchGFX/target/TouchGFXGPIO.cpp:65:6:static void touchgfx::GPIO::set(touchgfx::GPIO::GPIO_ID)	0	static
+C:/Users/ridas/OneDrive/Desktop/Formula_Electric/dashboard-final/front-controller/stm32-mcu/FE_Dashboard/TouchGFX/target/TouchGFXGPIO.cpp:95:6:static void touchgfx::GPIO::clear(touchgfx::GPIO::GPIO_ID)	0	static
+C:/Users/ridas/OneDrive/Desktop/Formula_Electric/dashboard-final/front-controller/stm32-mcu/FE_Dashboard/TouchGFX/target/TouchGFXGPIO.cpp:125:6:static void touchgfx::GPIO::toggle(touchgfx::GPIO::GPIO_ID)	0	static
+C:/Users/ridas/OneDrive/Desktop/Formula_Electric/dashboard-final/front-controller/stm32-mcu/FE_Dashboard/TouchGFX/target/TouchGFXGPIO.cpp:155:6:static bool touchgfx::GPIO::get(touchgfx::GPIO::GPIO_ID)	0	static

@@ -1,0 +1,6 @@
+C:/Users/ridas/OneDrive/Desktop/Formula_Electric/dashboard-final/front-controller/stm32-mcu/FE_Dashboard/Core/Src/main.c:607:6:StartDefaultTask	8	static
+C:/Users/ridas/OneDrive/Desktop/Formula_Electric/dashboard-final/front-controller/stm32-mcu/FE_Dashboard/Core/Src/main.c:108:6:testing_can_data_callback	32	static
+C:/Users/ridas/OneDrive/Desktop/Formula_Electric/dashboard-final/front-controller/stm32-mcu/FE_Dashboard/Core/Src/main.c:244:6:SystemClock_Config	224	static
+C:/Users/ridas/OneDrive/Desktop/Formula_Electric/dashboard-final/front-controller/stm32-mcu/FE_Dashboard/Core/Src/main.c:132:5:main	104	static,ignoring_inline_asm
+C:/Users/ridas/OneDrive/Desktop/Formula_Electric/dashboard-final/front-controller/stm32-mcu/FE_Dashboard/Core/Src/main.c:698:6:HAL_TIM_PeriodElapsedCallback	0	static
+C:/Users/ridas/OneDrive/Desktop/Formula_Electric/dashboard-final/front-controller/stm32-mcu/FE_Dashboard/Core/Src/main.c:716:6:Error_Handler	0	static

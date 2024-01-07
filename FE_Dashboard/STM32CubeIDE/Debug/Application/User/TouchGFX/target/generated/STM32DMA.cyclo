@@ -1,0 +1,13 @@
+DMA.hpp:138:18:virtual void touchgfx::DMA_Interface::flush()	1
+STM32DMA.hpp:71:31:virtual touchgfx::DMAType STM32F7DMA::getDMAType()	1
+STM32DMA.hpp:107:18:virtual void STM32F7DMA::signalDMAInterrupt()	1
+STM32DMA.cpp:59:6:virtual void STM32F7DMA::initialize()	1
+STM32DMA.cpp:141:16:virtual touchgfx::BlitOperations STM32F7DMA::getBlitCaps()	1
+STM32DMA.cpp:53:1:STM32F7DMA::~STM32F7DMA()	1
+STM32DMA.cpp:53:1:virtual STM32F7DMA::~STM32F7DMA()	1
+STM32DMA.cpp:41:17:void DMA2D_XferCpltCallback(DMA2D_HandleTypeDef*)	1
+STM32DMA.cpp:48:1:STM32F7DMA::STM32F7DMA()	2
+STM32DMA.cpp:73:17:uint32_t STM32F7DMA::getChromARTInputFormat(touchgfx::Bitmap::BitmapFormat)	4
+STM32DMA.cpp:108:17:uint32_t STM32F7DMA::getChromARTOutputFormat(touchgfx::Bitmap::BitmapFormat)	3
+STM32DMA.cpp:164:6:virtual void STM32F7DMA::setupDataCopy(const touchgfx::BlitOp&)	12
+STM32DMA.cpp:334:6:virtual void STM32F7DMA::setupDataFill(const touchgfx::BlitOp&)	3

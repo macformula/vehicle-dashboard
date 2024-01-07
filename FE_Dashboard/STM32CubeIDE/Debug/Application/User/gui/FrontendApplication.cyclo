@@ -1,0 +1,7 @@
+Application.hpp:74:18:virtual void touchgfx::Application::appSwitchScreen(uint8_t)	1
+Application.hpp:86:18:virtual void touchgfx::Application::requestRedraw(touchgfx::Rect&)	1
+FrontendApplication.hpp:14:13:FrontendApplication::~FrontendApplication()	1
+FrontendApplication.hpp:14:13:virtual FrontendApplication::~FrontendApplication()	1
+FrontendApplication.hpp:16:18:virtual void FrontendApplication::handleTickEvent()	1
+MVPApplication.hpp:59:18:virtual void touchgfx::MVPApplication::handlePendingScreenTransition()	3
+FrontendApplication.cpp:3:1:FrontendApplication::FrontendApplication(Model&, FrontendHeap&)	1

@@ -1,0 +1,13 @@
+C:/Users/ridas/OneDrive/Desktop/Formula_Electric/dashboard-final/front-controller/stm32-mcu/FE_Dashboard/Core/Src/stm32f7xx_it.c:74:6:NMI_Handler	0	static
+C:/Users/ridas/OneDrive/Desktop/Formula_Electric/dashboard-final/front-controller/stm32-mcu/FE_Dashboard/Core/Src/stm32f7xx_it.c:87:6:HardFault_Handler	0	static
+C:/Users/ridas/OneDrive/Desktop/Formula_Electric/dashboard-final/front-controller/stm32-mcu/FE_Dashboard/Core/Src/stm32f7xx_it.c:102:6:MemManage_Handler	0	static
+C:/Users/ridas/OneDrive/Desktop/Formula_Electric/dashboard-final/front-controller/stm32-mcu/FE_Dashboard/Core/Src/stm32f7xx_it.c:117:6:BusFault_Handler	0	static
+C:/Users/ridas/OneDrive/Desktop/Formula_Electric/dashboard-final/front-controller/stm32-mcu/FE_Dashboard/Core/Src/stm32f7xx_it.c:132:6:UsageFault_Handler	0	static
+C:/Users/ridas/OneDrive/Desktop/Formula_Electric/dashboard-final/front-controller/stm32-mcu/FE_Dashboard/Core/Src/stm32f7xx_it.c:147:6:DebugMon_Handler	0	static
+C:/Users/ridas/OneDrive/Desktop/Formula_Electric/dashboard-final/front-controller/stm32-mcu/FE_Dashboard/Core/Src/stm32f7xx_it.c:167:6:CAN1_TX_IRQHandler	0	static
+C:/Users/ridas/OneDrive/Desktop/Formula_Electric/dashboard-final/front-controller/stm32-mcu/FE_Dashboard/Core/Src/stm32f7xx_it.c:181:6:CAN1_RX0_IRQHandler	0	static
+C:/Users/ridas/OneDrive/Desktop/Formula_Electric/dashboard-final/front-controller/stm32-mcu/FE_Dashboard/Core/Src/stm32f7xx_it.c:195:6:CAN1_RX1_IRQHandler	0	static
+C:/Users/ridas/OneDrive/Desktop/Formula_Electric/dashboard-final/front-controller/stm32-mcu/FE_Dashboard/Core/Src/stm32f7xx_it.c:209:6:CAN1_SCE_IRQHandler	0	static
+C:/Users/ridas/OneDrive/Desktop/Formula_Electric/dashboard-final/front-controller/stm32-mcu/FE_Dashboard/Core/Src/stm32f7xx_it.c:223:6:TIM6_DAC_IRQHandler	0	static
+C:/Users/ridas/OneDrive/Desktop/Formula_Electric/dashboard-final/front-controller/stm32-mcu/FE_Dashboard/Core/Src/stm32f7xx_it.c:237:6:LTDC_IRQHandler	0	static
+C:/Users/ridas/OneDrive/Desktop/Formula_Electric/dashboard-final/front-controller/stm32-mcu/FE_Dashboard/Core/Src/stm32f7xx_it.c:251:6:DMA2D_IRQHandler	0	static

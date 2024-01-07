@@ -1,0 +1,7 @@
+main.c:71:5:main	24	static
+main.c:125:6:SystemClock_Config	232	static
+main.c:172:13:MX_USART2_Init	24	static
+main.c:209:13:MX_GPIO_Init	56	static
+main.c:311:6:sendData	40	dynamic
+main.c:326:6:getData	8	static
+main.c:337:6:Error_Handler	4	static
