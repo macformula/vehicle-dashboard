@@ -7,111 +7,56 @@
 
 #ifndef SIMULATOR //SIMULATOR indicates only will run following includes + extern if running in TouchGFX simulator
 
-#include "canal_dcu_messages.h" //needs this import to access the required CAN message queues for the different message structs
-#include "main.h" //needs main.h to import canData_t class definition - from M1 testing
-#include "cmsis_os2.h" //needs this import to use os message queueing API CMSIS-RTOS2
+#include "main.h" //needs main.h to import canData_t class definition
+#include "cmsis_os2.h" //needs this import to use os message queueing
 
+/*
 extern "C"
 {
-   osMessageQueueId_t canVehicleInfoQueue;
+    extern osMessageQueueId_t canQueueHandle;
+    canData_t *canData_r; //a new struct for the receiving/gui end
 }
-#endif
-
-//Global instances of receiving-end message structs
-    //using the defined message struct types, inits the global structs of these typedefs to store messages in
-volatile TsVehicleInfo          receivingVehicleInfo;
-volatile TsDashboardAnswer      receivingDashboardAnswer;
-volatile TsDashboardQuestion    receivingDashboardQuestion;
-
-S_DashMessage receivingDashMessage;
+#endif*/
 
 Model::Model() : modelListener(0)
 {
 }
 
-// ----- GETDATABUFFER Pointer table AND GETTER: For struct data buffers
-
-//define struct for ptr table format of each element
-struct dataBuffer {
-    TeMessageID canMessageId;
-    void* dataBufferPtr; 
-};
-
-struct dataBuffer DATA_BUFFER_PTR_TABLE[NUM_RX_MESSAGES] = {
-    {VEHICLEINFO_CANAL_ID, (void*)&receivingVehicleInfo},
-    {DASHBOARDANSWER_CANAL_ID, (void*)&receivingDashboardAnswer}
-};
-
-void* Model::getDataBuffer(TeMessageID canMessageId) {
-
-    //Iterate through DATA_BUFFER_PTR Table
-    for (int i = 0; i < NUM_RX_MESSAGES; i++) { //Iterate through each struct in struct table
-        if ((DATA_BUFFER_PTR_TABLE[i].canMessageId == canMessageId)) {
-
-            return DATA_BUFFER_PTR_TABLE[i].dataBufferPtr;
-        }
-
-    }
-}
-
-// ---- SCREEN UNMARSHALLER: Removed from newest update -----
-
-// //typedef custom function pointer type ScreenUnmarshaller: 
-//     //Each unmarshaller has:
-//         //void* return type
-//         //getDataBuffer() are parameter therefore returns void* data type as parameter: void* parameter
-// typedef void (*ScreenUnmarshaller)(void* dataBufferPtr, S_DashMessage receivingDashMessage);
-
-// //Define global instance of function pointer void* screenUnmarshaller to store the current screenUnmarshaller for incoming message
-// ScreenUnmarshaller screenUnmarshaller;
-
-// struct unmarshalStruct {
-//     TeMessageID canMessageId;
-//     //Func ptr to screenUnmarshallers
-//     int unmarshallerId;
-// };
-
-// struct unmarshalStruct SCREEN_UNMARSHAL_TABLE[NUM_RX_MESSAGES] = {
-//       //Not reading the functions?
-//     {VEHICLEINFO_CANAL_ID, 0},
-//     {DASHBOARDANSWER_CANAL_ID, 1}
-// };
-
-// int getScreenUnmarshaller(TeMessageID canMessageId) {
-
-//     for (int i = 0; i < NUM_RX_MESSAGES; i++) {
-//         if (canMessageId == SCREEN_UNMARSHAL_TABLE[i].canMessageId) {
-//             return SCREEN_UNMARSHAL_TABLE[i].unmarshallerId;
-//         }
-//     }
-
-//     return -1;
-
-// }
-
-void Model::tick() //MAIN: Encapsulates what will be run at each tick of display
+void Model::tick()
 {
+    uint8_t socPercentage_Counter = 0;
+	uint8_t powerPercentage_Counter = 0;
+	uint8_t vehicleSpeed = 0;
+	uint8_t VCU_Errors = 0;
+	uint8_t Vehicle_Status = 0;
 
-#ifndef SIMULATOR //Will run this code only when flashed and running on the board, therefore not a touchGFX simulator run
-    if (osMessageQueueGetCount(canVehicleInfoQueue) > 0)
+	modelListener->powerPercentage(powerPercentage_Counter);
+	modelListener->socPercentage(socPercentage_Counter);
+	modelListener->setVehicleSpeed(vehicleSpeed);
+	modelListener->setVCU_Errors(VCU_Errors);
+	modelListener->setVehicle_Status(Vehicle_Status);
+    /*
+#ifndef SIMULATOR //will run this code only when flashed and running on the board, therefore not a touchGFX simulator run
+    if (osMessageQueueGetCount(canQueueHandle) > 0)
     {
-        if (osMessageQueueGet(canVehicleInfoQueue, &receivingDashMessage, 0, 0) == osOK)
+        if (osMessageQueueGet(canQueueHandle, &canData_r, 0, 0) == osOK)
         {
-
-            //Extract ID of incoming message
-            TeMessageID canMessageId = receivingDashMessage.canMessageId;
-            switch (canMessageId) {
-                case(VEHICLEINFO_CANAL_ID):
-                    modelListener->unmarshalVehicleInfoData(Model::getDataBuffer(canMessageId), receivingDashMessage);
-                    break;
-
-                case(DASHBOARDANSWER_CANAL_ID):
-                    modelListener->unmarshalDashboardAnswerData(Model::getDataBuffer(canMessageId), receivingDashMessage);
-                    break;
-            }
+            strncpy(Model::getRData(), canData_r->Data, canData_r->size);
+            modelListener->can_Data(Model::getRData()); //modellistner is a pointer to thec urrently actively presenter object
         }
     }
-    
+
 #endif
 
+    //gui-side test 1: Test comms from Model() tso display on Presenter->View via function canData()
+    char guiTest[] = "guiTest";
+    strncpy(Model::getRData(), guiTest, strlen(guiTest));
+    //call canData() now to display
+    modelListener->can_Data(Model::getRData());
+    //modelListener->can_Data(RData);
+    //modelListener->can_Data();
+    touchgfx_printf("Called model func \n");
+
+    //strncpy(Model::getRData(), stringTest, sizeof(stringTest)); just to test whether the gui/model side functions are working
+    */
 }

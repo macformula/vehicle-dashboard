@@ -2,7 +2,7 @@
 #define MODELLISTENER_HPP
 
 #include <gui/model/Model.hpp>
-
+#include <stdint.h>
 class ModelListener
 {
 public:
@@ -24,8 +24,14 @@ public:
     //any method functions to use on our screens is defined in modelListener class because the Presenter class is derived from the model listener
     // vs. Model, that just controls ./....?
 
-    virtual void unmarshalVehicleInfoData(void* dataBufferPtr, S_DashMessage receivingDashMessage) {};
-    virtual void unmarshalDashboardAnswerData(void* dataBufferPtr, S_DashMessage receivingDashMessage) {};
+    //virtual void unmarshalVehicleInfoData(void* dataBufferPtr, S_DashMessage receivingDashMessage) {};
+    //virtual void unmarshalDashboardAnswerData(void* dataBufferPtr, S_DashMessage receivingDashMessage) {};
+    //Vehicleinfoview
+    virtual void powerPercentage(uint8_t val){}
+    virtual void socPercentage(uint8_t val){}
+    virtual void setVehicleSpeed(uint8_t val){}
+    virtual void setVCU_Errors(uint8_t val){}
+    virtual void setVehicle_Status(uint8_t val){}
 
 protected:
     Model *model; //iniitalises model object

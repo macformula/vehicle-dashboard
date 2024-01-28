@@ -24,7 +24,7 @@ void VehicleInfoPresenter::deactivate()
 
 
 // }
-
+/*
 //Unmarshals the VehicleInfo: The data for this screen. Calls view after unmarshalling
 void VehicleInfoPresenter::unmarshalVehicleInfoData(void* dataBufferPtr, S_DashMessage receivingDashMessage) {
 
@@ -39,6 +39,59 @@ void VehicleInfoPresenter::unmarshalVehicleInfoData(void* dataBufferPtr, S_DashM
     //(pointed to by the current value of modelListener = the current screen being displayed) is NOT DashAnswer screen
 void VehicleInfoPresenter::unmarshalDashboardAnswerData(void* dataBufferPtr, S_DashMessage receivingDashMessage) {
 
+}*/
+
+
+
+
+
+
+
+
+
+void VehicleInfoPresenter::socPercentage(uint8_t val)
+{
+	if (val == 100){
+		val =0;
+	} else{
+		val+=1;
+	}
+    view.socPercentage(val);
 }
 
+void VehicleInfoPresenter::powerPercentage(uint8_t val)
+{
+	if (val == 100){
+		val =0;
+	} else{
+		val+=1;
+	}
+    view.powerPercentage(val);
+}
+
+void VehicleInfoPresenter::setVehicleSpeed(uint8_t val)
+{
+	if (val == 100){
+		val =0;
+	} else{
+		val+=1;
+	}
+    view.setVehicleSpeed(val);
+}
+
+void VehicleInfoPresenter::setVCU_Errors(uint8_t val)
+{
+	if (val == 0){
+		val = rand()%10;
+	}
+    view.setVCU_Errors(val);
+}
+
+void VehicleInfoPresenter::setVehicle_Status(uint8_t val)
+{
+	if (val == 0){
+		val = rand()%10;
+	}
+    view.setVehicle_Status(val);
+}
 

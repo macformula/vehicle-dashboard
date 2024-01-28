@@ -2,7 +2,7 @@
 #define MODEL_HPP
 
 class ModelListener;
-
+#include <stdint.h>
 class Model
 {
 public:
@@ -19,8 +19,8 @@ public:
     void tick();
     
     //function to return the correct buffer struct to use on the GUI side
-    void* getDataBuffer(TeMessageID canMessageId);
-    void* getScreenUnmarshaller(TeMessageID canMessageId);
+    //void* getDataBuffer(TeMessageID canMessageId);
+    //void* getScreenUnmarshaller(TeMessageID canMessageId);
     
 protected:
     ModelListener *modelListener; //iniitalizes modelListener object

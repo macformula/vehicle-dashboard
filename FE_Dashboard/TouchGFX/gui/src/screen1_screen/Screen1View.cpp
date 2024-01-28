@@ -27,3 +27,4 @@ void Screen1View::canTest_Data(char* data) //will place the unmarshalled can dat
 	//Unicode::snprintf(textArea1Buffer, TEXTAREA1_SIZE, "%u", 9);
     textArea1.invalidate();
 }
+

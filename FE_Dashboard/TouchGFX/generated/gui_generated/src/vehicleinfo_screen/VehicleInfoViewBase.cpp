@@ -3,8 +3,8 @@
 /*********************************************************************************/
 #include <gui_generated/vehicleinfo_screen/VehicleInfoViewBase.hpp>
 #include <touchgfx/Color.hpp>
-#include "BitmapDatabase.hpp"
 #include <texts/TextKeysAndLanguages.hpp>
+#include "BitmapDatabase.hpp"
 
 VehicleInfoViewBase::VehicleInfoViewBase()
 {
@@ -12,28 +12,95 @@ VehicleInfoViewBase::VehicleInfoViewBase()
     __background.setPosition(0, 0, 480, 272);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
 
-    image1.setXY(0, 1);
-    image1.setBitmap(touchgfx::Bitmap(BITMAP_BOOTSCREEN_01_ID));
+    box1.setPosition(0, -1, 480, 273);
+    box1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
 
-    animatedImage1.setXY(0, 0);
-    animatedImage1.setUpdateTicksInterval(1);
-    animatedImage1.startAnimation(false, true, true);
+    VehicleSpeed.setXY(286, 194);
+    VehicleSpeed.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    VehicleSpeed.setLinespacing(0);
+    VehicleSpeed.setTypedText(touchgfx::TypedText(T_SINGLEUSEID1));
 
-    button1.setXY(300, 203);
-    button1.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_EDGE_SMALL_ID), touchgfx::Bitmap(BITMAP_BLUE_BUTTONS_ROUND_EDGE_SMALL_PRESSED_ID));
+    Speed_gauge.setBackground(touchgfx::Bitmap(BITMAP_BLUE_GAUGES_ORIGINAL_GAUGE_BACKGROUND_STYLE_00_ID));
+    Speed_gauge.setPosition(232, -1, 248, 150);
+    Speed_gauge.setCenter(125, 125);
+    Speed_gauge.setStartEndAngle(-90, 90);
+    Speed_gauge.setRange(0, 200);
+    Speed_gauge.setValue(0);
+    Speed_gauge.setNeedle(BITMAP_BLUE_NEEDLES_ORIGINAL_GAUGE_NEEDLE_STYLE_00_ID, 11, 55);
+    Speed_gauge.setMovingNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
+    Speed_gauge.setSteadyNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
 
-    textArea1.setPosition(39, 89, 417, 155);
-    textArea1.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    textArea1.setLinespacing(0);
-    textArea1Buffer[0] = 0;
-    textArea1.setWildcard(textArea1Buffer);
-    textArea1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID3));
+    textArea2.setXY(15, 11);
+    textArea2.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    textArea2.setLinespacing(0);
+    textArea2.setTypedText(touchgfx::TypedText(T_SINGLEUSEID3));
+
+    textArea2_1.setXY(15, 62);
+    textArea2_1.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    textArea2_1.setLinespacing(0);
+    textArea2_1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID4));
+
+    Soc_progressbar.setXY(12, 96);
+    Soc_progressbar.setProgressIndicatorPosition(2, 2, 180, 16);
+    Soc_progressbar.setRange(0, 100);
+    Soc_progressbar.setDirection(touchgfx::AbstractDirectionProgress::RIGHT);
+    Soc_progressbar.setBackground(touchgfx::Bitmap(BITMAP_BLUE_PROGRESSINDICATORS_BG_MEDIUM_PROGRESS_INDICATOR_BG_SQUARE_0_DEGREES_ID));
+    Soc_progressbar.setColor(touchgfx::Color::getColorFromRGB(0, 151, 255));
+    Soc_progressbar.setValue(0);
+
+    Vehicle_Status_text.setXY(15, 219);
+    Vehicle_Status_text.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    Vehicle_Status_text.setLinespacing(0);
+    Unicode::snprintf(Vehicle_Status_textBuffer, VEHICLE_STATUS_TEXT_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID10).getText());
+    Vehicle_Status_text.setWildcard(Vehicle_Status_textBuffer);
+    Vehicle_Status_text.resizeToCurrentText();
+    Vehicle_Status_text.setTypedText(touchgfx::TypedText(T_SINGLEUSEID5));
+
+    VCU_Error_text.setXY(15, 187);
+    VCU_Error_text.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    VCU_Error_text.setLinespacing(0);
+    Unicode::snprintf(VCU_Error_textBuffer, VCU_ERROR_TEXT_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID9).getText());
+    VCU_Error_text.setWildcard(VCU_Error_textBuffer);
+    VCU_Error_text.resizeToCurrentText();
+    VCU_Error_text.setTypedText(touchgfx::TypedText(T_SINGLEUSEID6));
+
+    Power_progressbar.setXY(15, 42);
+    Power_progressbar.setProgressIndicatorPosition(2, 2, 180, 16);
+    Power_progressbar.setRange(0, 100);
+    Power_progressbar.setDirection(touchgfx::AbstractDirectionProgress::RIGHT);
+    Power_progressbar.setBackground(touchgfx::Bitmap(BITMAP_BLUE_PROGRESSINDICATORS_BG_MEDIUM_PROGRESS_INDICATOR_BG_SQUARE_0_DEGREES_ID));
+    Power_progressbar.setColor(touchgfx::Color::getColorFromRGB(0, 151, 255));
+    Power_progressbar.setValue(0);
+
+    VehicleSpeedText.setXY(309, 162);
+    VehicleSpeedText.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    VehicleSpeedText.setLinespacing(0);
+    Unicode::snprintf(VehicleSpeedTextBuffer, VEHICLESPEEDTEXT_SIZE, "%s", touchgfx::TypedText(T_SINGLEUSEID8).getText());
+    VehicleSpeedText.setWildcard(VehicleSpeedTextBuffer);
+    VehicleSpeedText.resizeToCurrentText();
+    VehicleSpeedText.setTypedText(touchgfx::TypedText(T_SINGLEUSEID7));
+
+    Soc_textProgress.setXY(54, 128);
+    Soc_textProgress.setProgressIndicatorPosition(0, 0, 84, 34);
+    Soc_textProgress.setRange(0, 100);
+    Soc_textProgress.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
+    Soc_textProgress.setNumberOfDecimals(0);
+    Soc_textProgress.setTypedText(touchgfx::TypedText(T_SINGLEUSEID11));
+    Soc_textProgress.setBackground(touchgfx::Bitmap(BITMAP_BLUE_PROGRESSINDICATORS_BG_MEDIUM_TEXT_PROGRESS_BG_SQUARE_ID));
+    Soc_textProgress.setValue(60);
 
     add(__background);
-    add(image1);
-    add(animatedImage1);
-    add(button1);
-    add(textArea1);
+    add(box1);
+    add(VehicleSpeed);
+    add(Speed_gauge);
+    add(textArea2);
+    add(textArea2_1);
+    add(Soc_progressbar);
+    add(Vehicle_Status_text);
+    add(VCU_Error_text);
+    add(Power_progressbar);
+    add(VehicleSpeedText);
+    add(Soc_textProgress);
 }
 
 void VehicleInfoViewBase::setupScreen()

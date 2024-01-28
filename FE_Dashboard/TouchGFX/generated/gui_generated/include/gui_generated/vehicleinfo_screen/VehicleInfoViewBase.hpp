@@ -8,10 +8,11 @@
 #include <mvp/View.hpp>
 #include <gui/vehicleinfo_screen/VehicleInfoPresenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
-#include <touchgfx/widgets/Image.hpp>
-#include <touchgfx/widgets/AnimatedImage.hpp>
-#include <touchgfx/widgets/Button.hpp>
+#include <touchgfx/widgets/TextArea.hpp>
+#include <touchgfx/widgets/Gauge.hpp>
+#include <touchgfx/containers/progress_indicators/BoxProgress.hpp>
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
+#include <touchgfx/containers/progress_indicators/TextProgress.hpp>
 
 class VehicleInfoViewBase : public touchgfx::View<VehicleInfoPresenter>
 {
@@ -29,16 +30,27 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
-    touchgfx::Image image1;
-    touchgfx::AnimatedImage animatedImage1;
-    touchgfx::Button button1;
-    touchgfx::TextAreaWithOneWildcard textArea1;
+    touchgfx::Box box1;
+    touchgfx::TextArea VehicleSpeed;
+    touchgfx::Gauge Speed_gauge;
+    touchgfx::TextArea textArea2;
+    touchgfx::TextArea textArea2_1;
+    touchgfx::BoxProgress Soc_progressbar;
+    touchgfx::TextAreaWithOneWildcard Vehicle_Status_text;
+    touchgfx::TextAreaWithOneWildcard VCU_Error_text;
+    touchgfx::BoxProgress Power_progressbar;
+    touchgfx::TextAreaWithOneWildcard VehicleSpeedText;
+    touchgfx::TextProgress Soc_textProgress;
 
     /*
      * Wildcard Buffers
      */
-    static const uint16_t TEXTAREA1_SIZE = 4;
-    touchgfx::Unicode::UnicodeChar textArea1Buffer[TEXTAREA1_SIZE];
+    static const uint16_t VEHICLE_STATUS_TEXT_SIZE = 5;
+    touchgfx::Unicode::UnicodeChar Vehicle_Status_textBuffer[VEHICLE_STATUS_TEXT_SIZE];
+    static const uint16_t VCU_ERROR_TEXT_SIZE = 5;
+    touchgfx::Unicode::UnicodeChar VCU_Error_textBuffer[VCU_ERROR_TEXT_SIZE];
+    static const uint16_t VEHICLESPEEDTEXT_SIZE = 5;
+    touchgfx::Unicode::UnicodeChar VehicleSpeedTextBuffer[VEHICLESPEEDTEXT_SIZE];
 
 private:
 
