@@ -20,10 +20,10 @@ public:
     
     //function to return the correct buffer struct to use on the GUI side
     void* getDataBuffer(TeMessageID canMessageId);
-    void* getScreenUnmarshaller(TeMessageID canMessageId);
+
     
 protected:
-    ModelListener *modelListener; //iniitalizes modelListener object
+    ModelListener *modelListener; //iniitalizes modelListener object. therefore can apply methods from ModelListner onto this object
 };
 
 #endif // MODEL_HPP

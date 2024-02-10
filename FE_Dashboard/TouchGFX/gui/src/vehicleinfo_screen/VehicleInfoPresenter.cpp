@@ -28,6 +28,12 @@ void VehicleInfoPresenter::deactivate()
 //Unmarshals the VehicleInfo: The data for this screen. Calls view after unmarshalling
 void VehicleInfoPresenter::unmarshalVehicleInfoData(void* dataBufferPtr, S_DashMessage receivingDashMessage) {
 
+    //Cast dataBufferPtr to the correct type, TsVehicleInfo* 
+    dataBufferPtr = (TsVehicleInfo*)dataBufferPtr;
+
+    //Copy the data in VehicleInfo struct in the receivingDashMessage packet 
+    dataBufferPtr = receivingDashMessage.VehicleInfo;
+     
     //Iteration 1: Unmarshalling SocPercentage by placing into uint8_t buffer
     uint8_t SocPercentageBuffer = receivingDashMessage.VehicleInfo.SocPercentage;
     view.displaySocPercentage(SocPercentageBuffer);
@@ -40,5 +46,6 @@ void VehicleInfoPresenter::unmarshalVehicleInfoData(void* dataBufferPtr, S_DashM
 void VehicleInfoPresenter::unmarshalDashboardAnswerData(void* dataBufferPtr, S_DashMessage receivingDashMessage) {
 
 }
+
 
 

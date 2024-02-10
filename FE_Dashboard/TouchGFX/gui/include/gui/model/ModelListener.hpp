@@ -3,7 +3,9 @@
 
 #include <gui/model/Model.hpp>
 
-class ModelListener
+class ModelListener //abstract class
+
+    //any method functions to use on our screens is defined in modelListener class because the Presenter class is derived from the model listener
 {
 public:
     ModelListener() : model(0) {} //iniitalizes the Model pointer model (under the protected)
@@ -16,14 +18,11 @@ public:
         model = m;
     }
 
-    //virtual void can_Data(char *data) {}; // also defined insScreenPresenter.hpp
-    //virtual void can_Data(char* data) {}; // also defined insScreenPresenter.hpp
+    //test function
     virtual void can_Data(char* data) {}; //void function inherited by each screen's class
-    //virtual therefore redefined within the subclasses
+    
 
-    //any method functions to use on our screens is defined in modelListener class because the Presenter class is derived from the model listener
-    // vs. Model, that just controls ./....?
-
+    //screen unmarshal functions: inherited by each screen, calls overloaded version in the correct screen
     virtual void unmarshalVehicleInfoData(void* dataBufferPtr, S_DashMessage receivingDashMessage) {};
     virtual void unmarshalDashboardAnswerData(void* dataBufferPtr, S_DashMessage receivingDashMessage) {};
 

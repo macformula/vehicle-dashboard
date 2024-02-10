@@ -17,77 +17,43 @@ extern "C"
 }
 #endif
 
-//Global instances of receiving-end message structs
+//Global instances of receiving-end message structs: 'data buffer' structs
     //using the defined message struct types, inits the global structs of these typedefs to store messages in
+    //volatile: filled at runtime, changing
 volatile TsVehicleInfo          receivingVehicleInfo;
 volatile TsDashboardAnswer      receivingDashboardAnswer;
 volatile TsDashboardQuestion    receivingDashboardQuestion;
 
-S_DashMessage receivingDashMessage;
+S_DashMessage receivingDashMessage; //canQueue from .c copies incoming message into receiving-side struct
+//holds its own local instances of each type of data buffer struct
+
+
+// ----------------- getDataBuffer(): return ptr to correct 'data buffer' struct to copy incoming data into
+struct dataBuffer {
+    TeMessageId canMessageId;
+    void* dataBufferStructPtr; //void ptr to point to struct of some type
+}
+
+struct dataBuffer DATA_BUFFER_PTR_TABLE[NUM_RX_MESSAGES] = {
+    {VEHICLEINFO_CANAL_ID, (void*)&receivingVehicleInfo}, 
+    {DASHBOARDANSWER_CANAL_ID, (void*)&receivingDashboardAnswer}
+}
+
+//getter: given the canID stored in incoming DashMessage packet, returns pointer to global data buffer struct to copy data into
+void* Model::getDataBuffer(TeMessageID canMessageId) {
+
+    for (int i = 0; i < NUM_RX_MESSAGES; i++) { //Iterate through each struct in struct table
+        if ((DATA_BUFFER_PTR_TABLE[i].canMessageId == canMessageId)) {
+
+             return DATA_BUFFER_PTR_TABLE[i].dataBufferStructPtr;
+
+        }
+    }
+}
 
 Model::Model() : modelListener(0)
 {
 }
-
-// ----- GETDATABUFFER Pointer table AND GETTER: For struct data buffers
-
-//define struct for ptr table format of each element
-struct dataBuffer {
-    TeMessageID canMessageId;
-    void* dataBufferPtr; 
-};
-
-struct dataBuffer DATA_BUFFER_PTR_TABLE[NUM_RX_MESSAGES] = {
-    {VEHICLEINFO_CANAL_ID, (void*)&receivingVehicleInfo},
-    {DASHBOARDANSWER_CANAL_ID, (void*)&receivingDashboardAnswer}
-};
-
-void* Model::getDataBuffer(TeMessageID canMessageId) {
-
-    //Iterate through DATA_BUFFER_PTR Table
-    for (int i = 0; i < NUM_RX_MESSAGES; i++) { //Iterate through each struct in struct table
-        if ((DATA_BUFFER_PTR_TABLE[i].canMessageId == canMessageId)) {
-
-            return DATA_BUFFER_PTR_TABLE[i].dataBufferPtr;
-        }
-
-    }
-}
-
-// ---- SCREEN UNMARSHALLER: Removed from newest update -----
-
-// //typedef custom function pointer type ScreenUnmarshaller: 
-//     //Each unmarshaller has:
-//         //void* return type
-//         //getDataBuffer() are parameter therefore returns void* data type as parameter: void* parameter
-// typedef void (*ScreenUnmarshaller)(void* dataBufferPtr, S_DashMessage receivingDashMessage);
-
-// //Define global instance of function pointer void* screenUnmarshaller to store the current screenUnmarshaller for incoming message
-// ScreenUnmarshaller screenUnmarshaller;
-
-// struct unmarshalStruct {
-//     TeMessageID canMessageId;
-//     //Func ptr to screenUnmarshallers
-//     int unmarshallerId;
-// };
-
-// struct unmarshalStruct SCREEN_UNMARSHAL_TABLE[NUM_RX_MESSAGES] = {
-//       //Not reading the functions?
-//     {VEHICLEINFO_CANAL_ID, 0},
-//     {DASHBOARDANSWER_CANAL_ID, 1}
-// };
-
-// int getScreenUnmarshaller(TeMessageID canMessageId) {
-
-//     for (int i = 0; i < NUM_RX_MESSAGES; i++) {
-//         if (canMessageId == SCREEN_UNMARSHAL_TABLE[i].canMessageId) {
-//             return SCREEN_UNMARSHAL_TABLE[i].unmarshallerId;
-//         }
-//     }
-
-//     return -1;
-
-// }
 
 void Model::tick() //MAIN: Encapsulates what will be run at each tick of display
 {
@@ -100,17 +66,21 @@ void Model::tick() //MAIN: Encapsulates what will be run at each tick of display
 
             //Extract ID of incoming message
             TeMessageID canMessageId = receivingDashMessage.canMessageId;
+
+            //given the ID, identify the required unmarshal function to call on modelListener: 
             switch (canMessageId) {
                 case(VEHICLEINFO_CANAL_ID):
+                    //will pass in the void* ptr for the data struct buffer and will be cast to the correct type within the corresponding unmarshal function
                     modelListener->unmarshalVehicleInfoData(Model::getDataBuffer(canMessageId), receivingDashMessage);
                     break;
 
                 case(DASHBOARDANSWER_CANAL_ID):
-                    modelListener->unmarshalDashboardAnswerData(Model::getDataBuffer(canMessageId), receivingDashMessage);
+                    modelListener->unmarshalDashboardAnswerData(((TsDashboardAnswer*))Model::getDataBuffer(canMessageId), receivingDashMessage);
                     break;
             }
         }
     }
+
     
 #endif
 
