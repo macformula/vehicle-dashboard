@@ -465,6 +465,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_rida-home-temp.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/image_Yash_AnswerScreen.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_Yash_AnswerScreen.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/image_Blue_Buttons_Round_Edge_small.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/__designer/image_Blue_Buttons_Round_Edge_small.cpp</locationURI>
@@ -473,6 +478,16 @@
 			<name>Application/User/generated/image_Blue_Buttons_Round_Edge_small_pressed.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/__designer/image_Blue_Buttons_Round_Edge_small_pressed.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Blue_Gauges_original_gauge_background_style_00.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/__designer/image_Blue_Gauges_original_gauge_background_style_00.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Blue_Needles_original_gauge_needle_style_00.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/__designer/image_Blue_Needles_original_gauge_needle_style_00.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/LanguageGb.cpp</name>

@@ -8,6 +8,9 @@
 #include <mvp/View.hpp>
 #include <gui/dashboardanswer_screen/DashboardAnswerPresenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
+#include <touchgfx/widgets/ScalableImage.hpp>
+#include <touchgfx/widgets/TextArea.hpp>
+#include <touchgfx/widgets/Gauge.hpp>
 
 class DashboardAnswerViewBase : public touchgfx::View<DashboardAnswerPresenter>
 {
@@ -20,7 +23,16 @@ protected:
     FrontendApplication& application() {
         return *static_cast<FrontendApplication*>(touchgfx::Application::getInstance());
     }
+
+    /*
+     * Member Declarations
+     */
     touchgfx::Box __background;
+    touchgfx::ScalableImage scalableImage1;
+    touchgfx::TextArea textArea1;
+    touchgfx::TextArea textArea1_1;
+    touchgfx::TextArea textArea1_1_1;
+    touchgfx::Gauge gauge1;
 
 private:
 

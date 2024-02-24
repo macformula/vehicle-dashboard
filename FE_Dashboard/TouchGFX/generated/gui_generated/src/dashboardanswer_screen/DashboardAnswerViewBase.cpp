@@ -3,6 +3,8 @@
 /*********************************************************************************/
 #include <gui_generated/dashboardanswer_screen/DashboardAnswerViewBase.hpp>
 #include <touchgfx/Color.hpp>
+#include "BitmapDatabase.hpp"
+#include <texts/TextKeysAndLanguages.hpp>
 
 DashboardAnswerViewBase::DashboardAnswerViewBase()
 {
@@ -10,7 +12,41 @@ DashboardAnswerViewBase::DashboardAnswerViewBase()
     __background.setPosition(0, 0, 480, 272);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
 
+    scalableImage1.setBitmap(touchgfx::Bitmap(BITMAP_YASH_ANSWERSCREEN_ID));
+    scalableImage1.setPosition(0, 0, 480, 272);
+    scalableImage1.setScalingAlgorithm(touchgfx::ScalableImage::NEAREST_NEIGHBOR);
+
+    textArea1.setXY(413, 46);
+    textArea1.setColor(touchgfx::Color::getColorFromRGB(246, 250, 245));
+    textArea1.setLinespacing(0);
+    textArea1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID4));
+
+    textArea1_1.setXY(323, 206);
+    textArea1_1.setColor(touchgfx::Color::getColorFromRGB(246, 250, 245));
+    textArea1_1.setLinespacing(0);
+    textArea1_1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID5));
+
+    textArea1_1_1.setXY(359, 130);
+    textArea1_1_1.setColor(touchgfx::Color::getColorFromRGB(246, 250, 245));
+    textArea1_1_1.setLinespacing(0);
+    textArea1_1_1.setTypedText(touchgfx::TypedText(T_SINGLEUSEID6));
+
+    gauge1.setBackground(touchgfx::Bitmap(BITMAP_BLUE_GAUGES_ORIGINAL_GAUGE_BACKGROUND_STYLE_00_ID));
+    gauge1.setPosition(0, 0, 251, 251);
+    gauge1.setCenter(125, 125);
+    gauge1.setStartEndAngle(-90, 90);
+    gauge1.setRange(0, 100);
+    gauge1.setValue(0);
+    gauge1.setNeedle(BITMAP_BLUE_NEEDLES_ORIGINAL_GAUGE_NEEDLE_STYLE_00_ID, 11, 55);
+    gauge1.setMovingNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
+    gauge1.setSteadyNeedleRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
+
     add(__background);
+    add(scalableImage1);
+    add(textArea1);
+    add(textArea1_1);
+    add(textArea1_1_1);
+    add(gauge1);
 }
 
 void DashboardAnswerViewBase::setupScreen()

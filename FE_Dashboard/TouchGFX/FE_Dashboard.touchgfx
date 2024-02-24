@@ -94,7 +94,145 @@
         "CanvasBufferSize": 0
       },
       {
-        "Components": [],
+        "Components": [
+          {
+            "Type": "ScalableImage",
+            "Filename": "Yash_AnswerScreen.png",
+            "Alpha": 255,
+            "ScalingAlgorithm": "Nearest-neighbor",
+            "Name": "scalableImage1",
+            "X": 0,
+            "Y": 0,
+            "Width": 480,
+            "Height": 272,
+            "Visible": true,
+            "LockPosition": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "Type": "TextArea",
+            "TextId": "SingleUseId4",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 246,
+              "Green": 250,
+              "Blue": 245
+            },
+            "Alpha": 255,
+            "AutoSize": true,
+            "LineSpacing": 0,
+            "Name": "textArea1",
+            "X": 413,
+            "Y": 46,
+            "Width": 52,
+            "Height": 25,
+            "Visible": true,
+            "LockPosition": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "Type": "TextArea",
+            "TextId": "SingleUseId5",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 246,
+              "Green": 250,
+              "Blue": 245
+            },
+            "Alpha": 255,
+            "AutoSize": true,
+            "LineSpacing": 0,
+            "Name": "textArea1_1",
+            "X": 323,
+            "Y": 206,
+            "Width": 90,
+            "Height": 13,
+            "Visible": true,
+            "LockPosition": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "Type": "TextArea",
+            "TextId": "SingleUseId6",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 246,
+              "Green": 250,
+              "Blue": 245
+            },
+            "Alpha": 255,
+            "AutoSize": true,
+            "LineSpacing": 0,
+            "Name": "textArea1_1_1",
+            "X": 359,
+            "Y": 130,
+            "Width": 18,
+            "Height": 13,
+            "Visible": true,
+            "LockPosition": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          },
+          {
+            "Type": "Gauge",
+            "FileNameBackground": "__designer\\Blue_Gauges_original_gauge_background_style_00.png",
+            "BackgroundOffsetX": 0,
+            "BackgroundOffsetY": 0,
+            "RotationCenterX": 125,
+            "RotationCenterY": 125,
+            "StartAngle": -90,
+            "EndAngle": 90,
+            "RangeMin": 0,
+            "RangeMax": 100,
+            "InitialValue": 0,
+            "UseAnimation": false,
+            "Easing": "Linear",
+            "EasingOption": "In",
+            "FileNameNeedle": "__designer\\Blue_Needles_original_gauge_needle_style_00.png",
+            "NeedleRotationCenterX": 11,
+            "NeedleRotationCenterY": 55,
+            "NeedleMovingRenderingAlgorithm": "Bilinear Interpolation",
+            "NeedleSteadyRenderingAlgorithm": "Bilinear Interpolation",
+            "UseArc": false,
+            "ArcColor": {
+              "Red": 20,
+              "Green": 151,
+              "Blue": 197
+            },
+            "SetArcPosition": false,
+            "ArcX": 0,
+            "ArcY": 0,
+            "ArcWidth": 0,
+            "ArcHeight": 0,
+            "ArcRadius": 0,
+            "ArcLineWidth": 0,
+            "ArcCapStyle": "Butt",
+            "ArcOnTopOfNeedle": false,
+            "Alpha": 255,
+            "Name": "gauge1",
+            "X": 0,
+            "Y": 0,
+            "Width": 251,
+            "Height": 251,
+            "Visible": true,
+            "LockPosition": false,
+            "Draggable": false,
+            "Clickable": false,
+            "Fadeable": false,
+            "Moveable": false
+          }
+        ],
         "Interactions": [],
         "Name": "DashboardAnswer",
         "OverrideDefaultBufferSize": false,
@@ -105,6 +243,18 @@
     "TextEntries": [
       {
         "TextEntryId": "SingleUseId3",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId4",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId5",
+        "IsResource": false
+      },
+      {
+        "TextEntryId": "SingleUseId6",
         "IsResource": false
       }
     ],
