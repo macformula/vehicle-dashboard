@@ -75,7 +75,7 @@ void Model::tick() //MAIN: Encapsulates what will be run at each tick of display
                     break;
 
                 case(DASHBOARDANSWER_CANAL_ID):
-                    modelListener->unmarshalDashboardAnswerData(((TsDashboardAnswer*))Model::getDataBuffer(canMessageId), receivingDashMessage);
+                    modelListener->unmarshalDashboardAnswerData(Model::getDataBuffer(canMessageId), receivingDashMessage);
                     break;
             }
         }

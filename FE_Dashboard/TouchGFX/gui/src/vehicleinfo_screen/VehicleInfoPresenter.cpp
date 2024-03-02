@@ -32,10 +32,16 @@ void VehicleInfoPresenter::unmarshalVehicleInfoData(void* dataBufferPtr, S_DashM
     dataBufferPtr = (TsVehicleInfo*)dataBufferPtr;
 
     //Copy the data in VehicleInfo struct in the receivingDashMessage packet 
-    dataBufferPtr = receivingDashMessage.VehicleInfo;
+    dataBufferPtr = receivingDashMessage.VehicleInfo; 
      
     //Iteration 1: Unmarshalling SocPercentage by placing into uint8_t buffer
     uint8_t SocPercentageBuffer = receivingDashMessage.VehicleInfo.SocPercentage;
+
+
+
+
+    //
+
     view.displaySocPercentage(SocPercentageBuffer);
 
 
