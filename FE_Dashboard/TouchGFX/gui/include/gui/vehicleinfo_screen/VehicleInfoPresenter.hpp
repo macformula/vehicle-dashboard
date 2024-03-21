@@ -3,7 +3,7 @@
 
 #include <gui/model/ModelListener.hpp>
 #include <mvp/Presenter.hpp>
-#include "canal_dcu_messages.h"
+#include "canal_dcu_messages.h" //requires this import for seeing S_DashMessage data type
 
 using namespace touchgfx;
 
@@ -32,6 +32,13 @@ public:
 
     virtual void unmarshalVehicleInfoData(void* dataBufferPtr, S_DashMessage receivingDashMessage);
     virtual void unmarshalDashboardAnswerData(void* dataBufferPtr, S_DashMessage receivingDashMessage);
+
+    //Vehicleinfoview: VehicleInfo view functions
+	virtual void powerPercentage(uint8_t val);
+	virtual void socPercentage(uint8_t val);
+	virtual void setVehicleSpeed(uint8_t val);
+	virtual void setVCU_Errors(uint8_t val);
+	virtual void setVehicle_Status(uint8_t val);
 
 private:
     VehicleInfoPresenter();

@@ -31,7 +31,7 @@ S_DashMessage receivingDashMessage; //canQueue from .c copies incoming message i
 // ----------------- getDataBuffer(): return ptr to correct 'data buffer' struct to copy incoming data into
 struct dataBuffer {
     TeMessageId canMessageId;
-    void* dataBufferStructPtr; //void ptr to point to struct of some type
+    void* dataBufferStructPtr; //void ptr to point to struct of some type. NOTE: must be void because in this dataBuffer struct, we do not know what struct type will be assigned yet
 }
 
 struct dataBuffer DATA_BUFFER_PTR_TABLE[NUM_RX_MESSAGES] = {
@@ -57,6 +57,19 @@ Model::Model() : modelListener(0)
 
 void Model::tick() //MAIN: Encapsulates what will be run at each tick of display
 {
+
+    // //Test values: Display testing, comment for CAN testing
+    // uint8_t socPercentage_Counter = 0;
+	// uint8_t powerPercentage_Counter = 0;
+	// uint8_t vehicleSpeed = 0;
+	// uint8_t VCU_Errors = 0;
+	// uint8_t Vehicle_Status = 0;
+
+	// modelListener->powerPercentage(powerPercentage_Counter);
+	// modelListener->socPercentage(socPercentage_Counter);
+	// modelListener->setVehicleSpeed(vehicleSpeed);
+	// modelListener->setVCU_Errors(VCU_Errors);
+	// modelListener->setVehicle_Status(Vehicle_Status);
 
 #ifndef SIMULATOR //Will run this code only when flashed and running on the board, therefore not a touchGFX simulator run
     if (osMessageQueueGetCount(canVehicleInfoQueue) > 0)

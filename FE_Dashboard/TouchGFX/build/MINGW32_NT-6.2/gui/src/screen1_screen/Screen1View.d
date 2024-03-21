@@ -132,3 +132,4 @@ gui/include/gui/model/ModelListener.hpp:
 generated/texts/include/texts/TextKeysAndLanguages.hpp:
 
 ../Middlewares/ST/touchgfx/framework/include/touchgfx/Utils.hpp:
+ gui/src/screen1_screen/Screen1View.cpp

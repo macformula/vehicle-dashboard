@@ -1,8 +1,9 @@
 #ifndef MODEL_HPP
 #define MODEL_HPP
 
-class ModelListener;
+#include <stdint.h>
 
+class ModelListener;
 class Model
 {
 public:
@@ -19,6 +20,7 @@ public:
     void tick();
     
     //function to return the correct buffer struct to use on the GUI side
+    //merged with qasim's version
     void* getDataBuffer(TeMessageID canMessageId);
 
     

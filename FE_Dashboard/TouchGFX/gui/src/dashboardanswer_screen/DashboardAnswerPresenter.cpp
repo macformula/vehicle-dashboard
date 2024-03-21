@@ -21,16 +21,22 @@ void DashboardAnswerPresenter::deactivate()
     //(pointed to by the current value of modelListener = the current screen being displayed) is NOT VehicleInfo screen
 void DashboardAnswerPresenter::unmarshalVehicleInfoData(void* dataBufferPtr, S_DashMessage receivingDashMessage) {
 
+<<<<<<< HEAD
     //empty implementation for the non-vehicle info screen
+=======
+>>>>>>> qasim/VehicleInfo-display
 }
 
 //Unmarshals the VehicleInfo: The data for this screen. Calls view after unmarshalling
 void DashboardAnswerPresenter::unmarshalDashboardAnswerData(void* dataBufferPtr, S_DashMessage receivingDashMessage) {
 
+<<<<<<< HEAD
     //Cast dataBufferPtr to the correct type, TsVehicleInfo* 
     dataBufferPtr = (TsDashboardAnswer*)dataBufferPtr;
 
     //Copy the data in VehicleInfo struct in the receivingDashMessage packet 
     dataBufferPtr = receivingDashMessage.DashboardAnswer; 
 
+=======
+>>>>>>> qasim/VehicleInfo-display
 }
